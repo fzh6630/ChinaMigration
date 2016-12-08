@@ -1,0 +1,318 @@
+-----------------------------------------------------------------------------------------------------
+       log:  d:\yxia6\census00\cens0002.log
+  log type:  text
+ opened on:  23 Oct 2009, 09:49:03
+
+. set more off
+
+. set mem 180m
+(184320k)
+
+. 
+. * cens0002.do 09/03/2009
+. * translate chinese labels into English 
+. 
+. use d:\yxia6\census00\cens0001
+
+. 
+. label var district "prefecture city code"
+
+. label var htype "household type"
+
+. label var h61 "male,temporarily residing in the local, leaving the domicile of Hukou,<0.5yr"
+
+. label var h62 "female,temporarily residing in the local, leaving the domicile of Hukou,<0.5yr"
+
+. label var h9 "the number of housing"
+
+. label var h10 "constructional area of house, square metres"
+
+. label var h11 "residential use"
+
+. label var colive "are there any other cotenants"
+
+. label var h13 "when the building was built"
+
+. label var h14 "the number of the building layers"
+
+. label var h15 "building's exterior wall material"
+
+. label var h16 "is there any kitchen in the house"
+
+. label var h17 "main cooking fuel"
+
+. label var h18 "whether drink tap water or not"
+
+. label var h19 "are there any balneal facilities in the house"
+
+. label var h20 "is there any toilet in the house"
+
+. label var h21 "sourse of housing"
+
+. label var h22 "the costs of the housing acquisition "
+
+. label var h23 "monthly rental fee"
+
+. label var ethnic "folk"
+
+. label var r61 "household registration status: place of residence and place of registration" 
+
+. label var r62 "household registration status: registered site"
+
+. label var r63 "household registration status: registered in the other provinces"
+
+. label var emp "last week, whether is engaged in labor for more than one hour with payment" 
+
+. label var empday "days:length of work last week"
+
+. label var ruemp "the situation of people who are not employed"
+
+. label var r261 "(15 to 50 years old women), fertility status, past yr"
+
+. label var r262 "(15 to 50 years old women), month of child birth, past yr"
+
+. label var r263 "(15 to 50 years old women) reproductive status over the previous year,infant gender
+> "
+note: label truncated to 80 characters
+
+. label var r264 "(15 to 50 years old women) month of giving birth to a second"
+
+. label var r265 "(15 to 50 years old women) infant gender,second child birth status over the previou
+> s year"
+note: label truncated to 80 characters
+
+. label var r251 "(15 to 50 years old women) fertility: # male"
+
+. label var r252 "(15 to 50 years old women) fertility: # female"
+
+. label var r253 "(15 to 50 years old women) fertility: # male alive now"
+
+. label var r254 "(15 to 50 years old women) fertility: # female alive now"
+
+. label var rururban "current address,1=urban,2=township,3=rural"
+
+. 
+. ******************************************
+. 
+. compress
+
+. 
+. sort hhid pid
+
+. sum
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+        hhid |   1180112    3.79e+07    1.35e+07   1.10e+07   6.59e+07
+         fid |   1180112    2.566731    1.668498          1         45
+         pid |   1180112    3.79e+09    1.35e+09   1.10e+09   6.59e+09
+    hhnumber |   1180112    753.3788     666.456          1       4810
+    province |   1180112    37.82399    13.43722         11         65
+-------------+--------------------------------------------------------
+    district |   1180112    10.00657    11.41633          1         90
+       htype |   1180112    1.033905    .1809854          1          2
+         h31 |   1179980    2.099196    1.541535          0         45
+         h32 |   1179872    2.034907    1.446157          0         45
+         h41 |   1109961    .0502144    .6065855          0         80
+-------------+--------------------------------------------------------
+         h42 |   1109721    .0282233    .3386621          0         90
+         h51 |   1115955    .1211106    .4126986          0         12
+         h52 |   1115697    .1055143    .3896704          0         16
+         h61 |   1101011    .0111824    .3117373          0         60
+         h62 |   1100978    .0112791    .2668748          0         88
+-------------+--------------------------------------------------------
+         h71 |   1104688    .0300555    .1724757          0          2
+         h72 |   1104630     .024582     .157111          0          6
+         h81 |   1102070    .0105774    .1026729          0          3
+         h82 |   1101684    .0088083    .0941739          0          3
+          h9 |   1139569    2.989237    1.799575          0         95
+-------------+--------------------------------------------------------
+         h10 |   1139514    87.44797    56.26732          0        999
+         h11 |   1139450    1.011315    .1090295          0          2
+      colive |   1126360    1.942304    .2354443          0          2
+         h13 |   1139384    1984.437    15.72999       1700       2000
+         h14 |   1126351    1.380545    .5588366          0          3
+-------------+--------------------------------------------------------
+         h15 |   1126351    2.169087    .8128263          0          4
+         h16 |   1126351    1.316756     .720215          0          3
+         h17 |   1126351      2.9899    1.206391          0          5
+         h18 |   1126351     1.56742    .4964937          0          2
+         h19 |   1126351    3.583973    .7666746          0          4
+-------------+--------------------------------------------------------
+         h20 |   1126351    3.246235    1.321679          0          5
+         h21 |   1126350    1.791008    1.586905          0          7
+         h22 |   1020345    2.141504    1.403944          0          9
+         h23 |     84708     2.34927    1.496587          0          9
+         rel |   1180112    1.842462     2.21537          0          9
+-------------+--------------------------------------------------------
+        male |   1180112    .5119751    .4998568          0          1
+      birthy |   1180112    1967.653    19.74343       1889       2000
+      birthm |   1180112    6.681147    3.446011          1         12
+      ethnic |   1180112    1.796264    3.925644          1         97
+         r61 |   1180112     1.11909    .3494241          1          5
+-------------+--------------------------------------------------------
+         r62 |   1152359    .6568439    1.994949          0          8
+         r63 |   1151464    1.247915    7.240177          0         65
+          r7 |   1174439    1.247871     .432017          0          2
+         r81 |   1180112     1.20957    .5381401          1          3
+         r82 |   1164197    2.367364    9.743118          0         91
+-------------+--------------------------------------------------------
+          r9 |   1180112    1.763637    1.697614          1          8
+        r101 |    134701    1.689497    .9241069          0          3
+        r102 |    133563    20.48837    21.42249          0         91
+        r103 |    133547    4.997529    8.869506          0         90
+        r104 |    133554    14.35982    22.76018          0         96
+-------------+--------------------------------------------------------
+         r11 |    134623    2.434829    1.343805          0          4
+         r12 |    134694    3.898043    2.765111          0          9
+        r131 |    131322    1.164763    .5418499          0          2
+        r132 |    129590     9.93552    18.27673          0         91
+    literate |   1097248    .9137278    .2807657          0          1
+-------------+--------------------------------------------------------
+        educ |   1097832    3.611843     1.32172          0          9
+       ceduc |   1073407    .0258029    .1585469          0          1
+       feduc |    988249    1.845319    .6183588          0          5
+         emp |    902794    1.542011    .8756063          0          3
+      empday |    646949    5.837352     1.44614          0          7
+-------------+--------------------------------------------------------
+    industry |    670349     197.553     292.226          0        999
+       occup |    670337    519.5837    164.3242          0        999
+       ruemp |    240441    2.823142    1.717815          0          7
+      foccup |    233049    30.44351     142.715          0        999
+     uempinc |    241714    2.694167    1.181206          0          6
+-------------+--------------------------------------------------------
+     marstat |    904028    2.000605    .8765391          0          5
+        mary |    720097    1978.438    15.34238       1914       2000
+        marm |    722525    6.968113    3.958973          0         12
+        r261 |    263744    1.012743    .2760638          0          2
+        r262 |    260126     .307697    1.606472          0         12
+-------------+--------------------------------------------------------
+        r263 |    260091    .0657808    .3203863          0          2
+        r264 |    253632    .0036155    .1826316          0         12
+        r265 |    253500    .0007219    .0345652          0          2
+    rururban |   1180112    2.399614    .8414419          1          3
+         age |   1180112    32.18002    19.74501          0        111
+-------------+--------------------------------------------------------
+     occup01 |    670337       4.759    1.079508          0          9
+        r251 |    334069    .7043425    .7608429          0          9
+        r252 |    333949    .6288894     .803024          0          9
+        r253 |    266145     .861102    .7356865          0          9
+        r254 |    266145    .7704372    .8104598          0          9
+-------------+--------------------------------------------------------
+       hsize |   1180112    4.133465    2.080952          1         45
+        rwgt |   1180112    .2924866    .1516016   .0222222          1
+
+. d
+
+Contains data from d:\yxia6\census00\cens0001.dta
+  obs:     1,180,112                          
+ vars:            82                          13 Sep 2009 18:36
+ size:   127,452,096 (32.5% of memory free)
+-----------------------------------------------------------------------------------------------------
+              storage  display     value
+variable name   type   format      label      variable label
+-----------------------------------------------------------------------------------------------------
+hhid            long   %12.0g                 household ID=province+district+hhnumber
+fid             byte   %8.0g                  R1, individual ID indside household
+pid             double %10.0f                 personal ID = hhid+individual ID (R1)
+hhnumber        int    %8.0g                  household ID inside district
+province        byte   %12.0g      prov       PROVINCE
+district        byte   %8.0g                  prefecture city code
+htype           byte   %8.0g       h2         household type
+h31             byte   %8.0g                  # male reg. in HH
+h32             byte   %8.0g                  # female reg. in HH
+h41             byte   %8.0g                  # male moved out, <0.5 yr
+h42             byte   %8.0g                  # female moved out, <0.5 yr
+h51             byte   %8.0g                  # male moved out, >=0.5yr
+h52             byte   %8.0g                  # female moved out, >=0.5yr
+h61             byte   %8.0g                  male,temporarily residing in the local, leaving the
+                                                domicile of Hukou,<0.5yr
+h62             byte   %8.0g                  female,temporarily residing in the local, leaving the
+                                                domicile of Hukou,<0.5yr
+h71             byte   %8.0g                  # male: born in past one yr
+h72             byte   %8.0g                  # female: born in past one yr
+h81             byte   %8.0g                  # male: died in past one yr
+h82             byte   %8.0g                  # female: died in past one yr
+h9              byte   %8.0g                  the number of housing
+h10             int    %8.0g                  constructional area of house, square metres
+h11             byte   %16.0g      h11        residential use
+colive          byte   %8.0g                  are there any other cotenants
+h13             int    %8.0g                  when the building was built
+h14             byte   %14.0g      h14        the number of the building layers
+h15             byte   %14.0g      h15        building's exterior wall material
+h16             byte   %16.0g      h16        is there any kitchen in the house
+h17             byte   %8.0g       h17        main cooking fuel
+h18             byte   %8.0g       yesno      whether drink tap water or not
+h19             byte   %14.0g      h19        are there any balneal facilities in the house
+h20             byte   %16.0g      h20        is there any toilet in the house
+h21             byte   %14.0g      h21        sourse of housing
+h22             byte   %8.0g       h22        the costs of the housing acquisition
+h23             byte   %9.0g       h23        monthly rental fee
+rel             byte   %10.0g      rel        rel. with HH header
+male            byte   %8.0g                  R3
+birthy          int    %8.0g                  R41
+birthm          byte   %8.0g                  R42
+ethnic          byte   %14.0g      eth        folk
+r61             byte   %37.0g      r61        household registration status: place of residence and
+                                                place of registration
+r62             byte   %22.0g      r62        household registration status: registered site
+r63             byte   %12.0g      prov       household registration status: registered in the other
+                                                provinces
+r7              byte   %8.0g       r7         Hukou status: 0=no hukou 1=agr. 2=urban
+r81             byte   %16.0g      r81        where was born 1=cur. county 2=cur. prov 3=oth prov
+r82             byte   %12.0g      prov       where was born: (other)prov.
+r9              byte   %22.0g      r9         which yr move here
+r101            byte   %16.0g      r81        move from where, 1=inside county/city 2=oth county/city
+                                                3=oth prov.
+r102            byte   %12.0g      prov       move from where, province
+r103            byte   %8.0g                  move from where, prefecture
+r104            byte   %8.0g                  move from where, county
+r11             byte   %10.0g      r11        R11: type of community moved out
+r12             byte   %8.0g       r12        R12 why move
+r131            byte   %8.0g       r131       where 5 yrs ago 2=oth prov.
+r132            byte   %12.0g      prov       where 5 yrs ago, province
+literate        byte   %8.0g                  0=illiterate
+educ            byte   %12.0g      educ       1=no sch 2=SaoMang 3=ele. 4=junior 5=high
+ceduc           byte   %8.0g                  continous educ. 1=yes
+feduc           byte   %8.0g       feduc      finish schooling?
+emp             byte   %40.0g      emp        last week, whether is engaged in labor for more than
+                                                one hour with payment
+empday          byte   %8.0g                  days:length of work last week
+industry        int    %34.0g      industry   R19
+occup           int    %68.0g      occup      R20
+ruemp           byte   %18.0g      ruemp      the situation of people who are not employed
+foccup          int    %68.0g      occup      R212, last occupation
+uempinc         byte   %16.0g      r22        R22, not working: living source
+marstat         byte   %10.0g      marstat    1s 2m 3re-m 4d 5w
+mary            int    %8.0g                  yr 1st time married
+marm            byte   %8.0g                  month 1st time married
+r261            byte   %8.0g       r261       (15 to 50 years old women), fertility status, past yr
+r262            byte   %8.0g                  (15 to 50 years old women), month of child birth, past
+                                                yr
+r263            byte   %8.0g                  (15 to 50 years old women) reproductive status over the
+                                                previous year,infant gen
+r264            byte   %8.0g                  (15 to 50 years old women) month of giving birth to a
+                                                second
+r265            byte   %8.0g                  (15 to 50 years old women) infant gender,second child
+                                                birth status over the prev
+rururban        byte   %8.0g       rururban   current address,1=urban,2=township,3=rural
+age             int    %8.0g                  AGE
+occup01         byte   %40.0g      occup01    
+r251            byte   %8.0g                  (15 to 50 years old women) fertility: # male
+r252            byte   %8.0g                  (15 to 50 years old women) fertility: # female
+r253            byte   %8.0g                  (15 to 50 years old women) fertility: # male alive now
+r254            byte   %8.0g                  (15 to 50 years old women) fertility: # female alive
+                                                now
+hsize           byte   %9.0g                  HH size, including collective HH
+rwgt            float  %9.0g                  re-weight by HH size
+-----------------------------------------------------------------------------------------------------
+Sorted by:  hhid  pid
+
+. save d:\yxia6\census00\cens0002, replace
+file d:\yxia6\census00\cens0002.dta saved
+
+. log close
+       log:  d:\yxia6\census00\cens0002.log
+  log type:  text
+ closed on:  23 Oct 2009, 09:49:21
+-----------------------------------------------------------------------------------------------------
