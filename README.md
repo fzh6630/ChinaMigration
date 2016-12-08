@@ -1,7 +1,7 @@
 # ChinaMigration
 This project is a joint work by Zhaohao Fu and Lingxin Hao to study the internal migration in China by Agent Based Modelling.
 
-The code used MASON library from George Mason University. The details is in http://cs.gmu.edu/~eclab/projects/mason/
+The code used Java language, particularly it uses MASON library from George Mason University. The details is in http://cs.gmu.edu/~eclab/projects/mason/
 
 The input file is in data folder.
 The M** refer to different stage of our project.
