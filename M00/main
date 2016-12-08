@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ChinaModel.CMModel
+Class-Path: mason.18.jar
+   
